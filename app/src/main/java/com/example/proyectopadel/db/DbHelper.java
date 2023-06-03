@@ -6,11 +6,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.proyectopadel.utilidades.Utilidades;
+
 public class DbHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION=1;
     private static final String DATABASE_NOMBRE="proyectopadel.db";
-    private static final String TABLE_PISTA="t_pista";
-    private static final String TABLE_USUARIO="t_usuario";
 
 
 
@@ -21,22 +21,17 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE "+TABLE_PISTA+"(  idPista integer PRIMARY KEY AUTOINCREMENT not null,\n" +
-                "    nombre text,\n" +
-                "    material text,\n" +
-                "    precio real,\n" +
-                "    idUsuario integer,\n" +
-                "    FOREIGN KEY(idUsuario) REFERENCES usuario(idUsuario))");
-        sqLiteDatabase.execSQL("CREATE TABLE "+TABLE_USUARIO+"(idUsuario integer primary key AUTOINCREMENT not null,\n" +
-                "    nombre text,\n" +
-                "    apellido1 text,\n" +
-                "    apellido2 text,\n" +
-                "    email text,\n" +
-                "    contrasena text)");
+        sqLiteDatabase.execSQL(Utilidades.CREAR_TABLA_PISTA);
+        sqLiteDatabase.execSQL(Utilidades.CREAR_TABLA_USUARIO);
+        sqLiteDatabase.execSQL(Utilidades.CREAR_TABLA_CLIENTE);
+
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_PISTA);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_USUARIO);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_CLIENTE);
     }
 }

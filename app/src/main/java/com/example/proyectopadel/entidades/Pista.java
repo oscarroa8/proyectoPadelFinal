@@ -58,4 +58,5 @@ public class Pista implements Serializable {
     public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
+
 }
