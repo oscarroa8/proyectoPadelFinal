@@ -8,15 +8,15 @@ public class Cliente implements Serializable {
     private String apellido1;
     private String apellido2;
     private String email;
-    private String contrasena;
+    private String telefono;
 
-    public Cliente(Integer idCliente, String nombre, String apellido1, String apellido2, String email, String contrasena) {
+    public Cliente(Integer idCliente, String nombre, String apellido1, String apellido2, String email, String telefono) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
         this.email = email;
-        this.contrasena = contrasena;
+        this.telefono = telefono;
     }
 
     public Cliente() {}
@@ -61,11 +61,11 @@ public class Cliente implements Serializable {
         this.email = email;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setTelefonoContrasena(String telefono) {
+        this.telefono = telefono;
     }
 }
