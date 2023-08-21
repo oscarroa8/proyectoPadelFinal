@@ -1,4 +1,4 @@
-package com.example.proyectopadel.entidades;
+package com.example.proyectopadel.back.entidades;
 
 import java.io.Serializable;
 import java.util.Date;

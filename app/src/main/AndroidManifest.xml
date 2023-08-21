@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoPadel">
         <activity
-            android:name=".activity_newlogin"
+            android:name=".controllers.activity_newlogin"
             android:exported="true" />
         <activity
-            android:name=".login"
+            android:name=".controllers.login"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

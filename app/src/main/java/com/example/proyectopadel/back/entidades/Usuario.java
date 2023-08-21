@@ -1,25 +1,25 @@
-package com.example.proyectopadel.entidades;
+package com.example.proyectopadel.back.entidades;
 
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
-        private Integer idUsuario;
-        private String nombre;
-        private String apellido1;
-        private String apellido2;
-        private String mail;
-        private String contrasena;
+    private Integer idUsuario;
+    private String nombre;
+    private String apellido1;
+    private String apellido2;
+    private String mail;
+    private String contrasena;
 
-    public Usuario(Integer idUsuario, String nombre, String apellido1, String apellido2, String mail, String contrasena) {
+    public Usuario() {}
+
+    public Usuario(Integer idUsuario, String nombre, String apellido1, String apellido2,
+                   String mail, String contrasena) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
         this.mail = mail;
         this.contrasena = contrasena;
-    }
-    public Usuario(){
-
     }
 
     public Integer getIdUsuario() {
