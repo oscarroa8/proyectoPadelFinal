@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_newlogin">
+    tools:context=".controllers.activity_newlogin">
 
     <EditText
         android:id="@+id/etRegistroNombre"
@@ -39,6 +39,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Primer apellido"
+        android:hintTextColor="#A1887F"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

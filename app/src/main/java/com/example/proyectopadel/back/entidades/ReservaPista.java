@@ -10,15 +10,16 @@ public class ReservaPista implements Serializable {
     private Date fechaFin;
     private double precioFinal;
 
-    public ReservaPista(Integer idPista, Integer idCliente, Date fechaInicio, Date fechaFin, double precioFinal) {
+    public ReservaPista() {
+    }
+
+    public ReservaPista(Integer idPista, Integer idCliente, Date fechaInicio, Date fechaFin,
+                        double precioFinal) {
         this.idPista = idPista;
         this.idCliente = idCliente;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.precioFinal = precioFinal;
-    }
-
-    public ReservaPista() {
     }
 
     public Integer getIdPista() {

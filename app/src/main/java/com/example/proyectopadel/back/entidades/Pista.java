@@ -4,16 +4,25 @@ import java.io.Serializable;
 
 public class Pista implements Serializable {
     private Integer idPista;
-    private String nombre;
+    private String nombrePista;
     private String material;
     private Integer precio;
     private Integer idUsuario;
 
-    public Pista(){}
+    public Pista() {
+    }
 
-    public Pista(Integer idPista, String nombre, String material, Integer precio, Integer idUsuario) {
+    public Pista(Integer idPista, String nombrePista, String material, Integer precio) {
         this.idPista = idPista;
-        this.nombre = nombre;
+        this.nombrePista = nombrePista;
+        this.material = material;
+        this.precio = precio;
+    }
+
+    public Pista(Integer idPista, String nombre, String material, Integer precio,
+                 Integer idUsuario) {
+        this.idPista = idPista;
+        this.nombrePista = nombre;
         this.material = material;
         this.precio = precio;
         this.idUsuario = idUsuario;
@@ -27,12 +36,12 @@ public class Pista implements Serializable {
         this.idPista = idPista;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombrePista() {
+        return nombrePista;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombrePista(String nombrePista) {
+        this.nombrePista = nombrePista;
     }
 
     public String getMaterial() {

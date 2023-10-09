@@ -8,14 +8,14 @@ public class Torneo implements Serializable {
     private int puntosRonda;
     private int nEquipos;
 
+    public Torneo() {
+    }
+
     public Torneo(Integer idTorneo, String nombre, int puntosRonda, int nEquipos) {
         this.idTorneo = idTorneo;
         this.nombre = nombre;
         this.puntosRonda = puntosRonda;
         this.nEquipos = nEquipos;
-    }
-
-    public Torneo() {
     }
 
     public Integer getIdTorneo() {

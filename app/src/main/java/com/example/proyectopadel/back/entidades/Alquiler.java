@@ -10,15 +10,16 @@ public class Alquiler implements Serializable {
     private Date fechaFin;
     private double precioFinal;
 
-    public Alquiler(Integer idMaterial, Integer idCliente, Date fechaInicio, Date fechaFin, double precioFinal) {
+    public Alquiler() {
+    }
+
+    public Alquiler(Integer idMaterial, Integer idCliente, Date fechaInicio, Date fechaFin,
+                    double precioFinal) {
         this.idMaterial = idMaterial;
         this.idCliente = idCliente;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.precioFinal = precioFinal;
-    }
-
-    public Alquiler() {
     }
 
     public Integer getIdMaterial() {

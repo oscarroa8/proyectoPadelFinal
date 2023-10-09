@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Consultas de creacion -->
+    <string name="BORRAR_TABLA_ROLES">DROP TABLE IF EXISTS roles</string>
+    <string name="CREAR_TABLA_ROLES">CREATE TABLE roles(idRol INTEGER PRIMARY KEY AUTOINCREMENT not null,rol TEXT)</string>
+
+    <string name="BORRAR_TABLA_USUARIOS">DROP TABLE IF EXISTS usuarios</string>
+    <string name="CREAR_TABLA_USUARIOS">CREATE TABLE usuarios(idUsuario INTEGER PRIMARY KEY AUTOINCREMENT not null, emailUsuario TEXT, nombreUsuario TEXT, primerApellidoUsuario TEXT, segundoApellidoUsuario TEXT, contrasenaUsuario TEXT, idRol INTEGER, FOREIGN KEY idRol REFERENCES roles(idRol))</string>
+
+    <string name="BORRAR_TABLA_EQUIPOS">DROP TABLE IF EXISTS equipos</string>
+    <string name="CREAR_TABLA_EQUIPOS">CREATE TABLE equipos(idEquipo INTEGER PRIMARY KEY AUTOINCREMENT not null, nombreEquipo TEXT, colorPrincipal TEXT, colorSecundario TEXT)</string>
+
+    <string name="BORRAR_TABLA_CLIENTE">DROP TABLE IF EXISTS clientes</string>
+    <string name="CREAR_TABLA_CLIENTES">CREATE TABLE clientes(idCliente INTEGER PRIMARY KEY AUTOINCREMENT not null, emailCliente TEXT, nombreCliente TEXT, primerApellidoCliente TEXT, segundoApellidoCliente TEXT, telefono TEXT, idEquipo INTEGER, FOREIGN KEY idEquipo REFERENCES equipos(idEquipo))</string>
+
+    <string name="BORRAR_TABLA_PISTA">DROP TABLE IF EXISTS pistas</string>
+    <string name="CREAR_TABLA_PISTA">CREATE TABLE pistas(idPista INTEGER PRIMARY KEY AUTOINCREMENT not null, nombrePista TEXT, material TEXT, precio REAL,idUsuario INTEGER, FOREIGN KEY idUsuario REFERENCES usuarios(idUsuario))</string>
+
+    <string name="BORRAR_TABLA_RESERVARPISTA">DROP TABLE IF EXISTS reservarPista</string>
+    <string name="CREAR_TABLA_RESERVARPISTA">CREATE TABLE reservarPista(fechaIniReservaPista TEXT, fechaFinReservaPista TEXT, precioFinalReserva REAL)</string>
+
+    <string name="BORRAR_TABLA_MATERIAL">DROP TABLE IF EXISTS material</string>
+    <string name="CREAR_TABLA_MATERIAL">CREATE TABLE material(idMaterial INTEGER PRIMARY KEY AUTOINCREMENT not null, precioHoraMaterial REAL)</string>
+
+    <string name="BORRAR_TABLA_ALQUILER">DROP TABLE IF EXISTS alquiler</string>
+    <string name="CREAR_TABLA_ALQUILER">CREATE TABLE alquiler(fechaIniAlquiler TEXT, fechaFinAlquiler TEXT, precioFinalAlquiler REAL)</string>
+
+    <string name="BORRAR_TABLA_TORNEOS">DROP TABLE IF EXISTS torneos</string>
+    <string name="CREAR_TABLA_TORNEOS">CREATE TABLE torneos(idTorneo INTEGER PRIMARY KEY AUTOINCREMENT not null, nombreTorneo TEXT, puntosRonda INTEGER, nEquipos INTEGER)</string>
+
+    <string name="BORRAR_TABLA_PARTICIPACIONES">DROP TABLE IF EXISTS participaciones</string>
+    <string name="CREAR_TABLA_PARTICIPACIONES">CREATE TABLE participaciones(fechaIniParticipacion TEXT, fechaFinParticipacion TEXT)</string>
+
+
+    <!-- Consultas de roles -->
+    <string name="CREAR_ROL_ADMINISTRADOR">INSERT INTO roles VALUES("ADMINISTRADOR")</string>
+    <string name="CREAR_ROL_EMPLEADO">INSERT INTO roles VALUES("EMPLEADO")</string>
+
+    <!-- Consultas de usuario -->
+    <string name="CREAR_SUPERUSUARIO">INSERT INTO usuarios VALUES("oscar@soho.com", "Oscar", "Roales", "Gonzalez", "soho", 1)</string>
+
+    <string name="OBTENER_USUARIO_POR_ID">SELECT * FROM usuario WHERE idUsuario = ?</string>
+    <string name="OBTENER_USUARIO_POR_USUARIO_Y_CONTRASENA">SELECT * FROM usuario WHERE nombre = ? and contrasena = ?</string>
+    <string name="OBTENER_USUARIO_POR_EMAIL_Y_CONTRASENA">SELECT * FROM usuario WHERE email = ? and contrasena = ?</string>
+
+    <!-- Consultas de cliente -->
+
+
+</resources>

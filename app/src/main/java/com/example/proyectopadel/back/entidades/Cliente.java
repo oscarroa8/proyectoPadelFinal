@@ -10,6 +10,9 @@ public class Cliente implements Serializable {
     private String email;
     private String telefono;
 
+    public Cliente() {
+    }
+
     public Cliente(Integer idCliente, String nombre, String apellido1, String apellido2, String email, String telefono) {
         this.idCliente = idCliente;
         this.nombre = nombre;
@@ -18,8 +21,6 @@ public class Cliente implements Serializable {
         this.email = email;
         this.telefono = telefono;
     }
-
-    public Cliente() {}
 
     public Integer getIdCliente() {
         return idCliente;

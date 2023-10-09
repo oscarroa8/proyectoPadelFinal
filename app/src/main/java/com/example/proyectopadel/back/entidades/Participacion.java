@@ -9,6 +9,9 @@ public class Participacion implements Serializable {
     private Date fechaInicio;
     private Date fechaFin;
 
+    public Participacion() {
+    }
+
     public Participacion(Integer idTorneo, Integer idEquipo, Date fechaInicio, Date fechaFin) {
         this.idTorneo = idTorneo;
         IdEquipo = idEquipo;
@@ -16,8 +19,6 @@ public class Participacion implements Serializable {
         this.fechaFin = fechaFin;
     }
 
-    public Participacion() {
-    }
 
     public Integer getIdTorneo() {
         return idTorneo;

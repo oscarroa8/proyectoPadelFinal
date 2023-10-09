@@ -5,18 +5,19 @@ import java.io.Serializable;
 public class Equipo implements Serializable {
 
     private Integer idEquipo;
-    private String nombre;
+    private String nombreEquipo;
     private String colorPrincipal;
     private String colorSecundario;
 
+    public Equipo() {
+    }
+
     public Equipo(Integer idEquipo, String nombre, String colorPrincipal, String colorSecundario) {
         this.idEquipo = idEquipo;
-        this.nombre = nombre;
+        this.nombreEquipo = nombre;
         this.colorPrincipal = colorPrincipal;
         this.colorSecundario = colorSecundario;
     }
-
-    public Equipo() {}
 
     public Integer getIdEquipo() {
         return idEquipo;
@@ -26,12 +27,12 @@ public class Equipo implements Serializable {
         this.idEquipo = idEquipo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreEquipo() {
+        return nombreEquipo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreEquipo(String nombreEquipo) {
+        this.nombreEquipo = nombreEquipo;
     }
 
     public String getColorPrincipal() {

@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 public class Material implements Serializable {
     private Integer idMaterial;
-    private double  precioHora;
+    private double precioHora;
+
+    public Material() {
+    }
 
     public Material(Integer idMaterial, double precioHora) {
         this.idMaterial = idMaterial;
         this.precioHora = precioHora;
-    }
-
-    public Material() {
     }
 
     public Integer getIdMaterial() {
