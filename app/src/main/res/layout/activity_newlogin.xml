@@ -38,8 +38,6 @@
         android:layout_height="53dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Primer apellido"
-        android:hintTextColor="#A1887F"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

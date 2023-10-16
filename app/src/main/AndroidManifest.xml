@@ -7,22 +7,24 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
         android:screenOrientation="landscape"
+        android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoPadel">
+        <activity
+            android:name=".AlquilerMaterial"
+            android:exported="true" />
         <activity
             android:name=".controllers.activity_newlogin"
             android:exported="true" />
         <activity
             android:name=".controllers.login"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

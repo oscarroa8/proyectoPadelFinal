@@ -25,14 +25,14 @@
     <string name="BORRAR_TABLA_ALQUILER">DROP TABLE IF EXISTS alquiler</string>
     <string name="CREAR_TABLA_ALQUILER">CREATE TABLE alquiler(fechaIniAlquiler TEXT, fechaFinAlquiler TEXT, precioFinalAlquiler REAL)</string>
 
-    <string name="BORRAR_TABLA_TORNEOS">DROP TABLE IF EXISTS torneos</string>
-    <string name="CREAR_TABLA_TORNEOS">CREATE TABLE torneos(idTorneo INTEGER PRIMARY KEY AUTOINCREMENT not null, nombreTorneo TEXT, puntosRonda INTEGER, nEquipos INTEGER)</string>
+    <!--<string name="BORRAR_TABLA_TORNEOS">DROP TABLE IF EXISTS torneos</string>
+     <string name="CREAR_TABLA_TORNEOS">CREATE TABLE torneos(idTorneo INTEGER PRIMARY KEY AUTOINCREMENT not null, nombreTorneo TEXT, puntosRonda INTEGER, nEquipos INTEGER)</string>
 
-    <string name="BORRAR_TABLA_PARTICIPACIONES">DROP TABLE IF EXISTS participaciones</string>
-    <string name="CREAR_TABLA_PARTICIPACIONES">CREATE TABLE participaciones(fechaIniParticipacion TEXT, fechaFinParticipacion TEXT)</string>
+     <string name="BORRAR_TABLA_PARTICIPACIONES">DROP TABLE IF EXISTS participaciones</string>
+     <string name="CREAR_TABLA_PARTICIPACIONES">CREATE TABLE participaciones(fechaIniParticipacion TEXT, fechaFinParticipacion TEXT)</string>
+  -->
 
-
-    <!-- Consultas de roles -->
+     <!-- Consultas de roles -->
     <string name="CREAR_ROL_ADMINISTRADOR">INSERT INTO roles VALUES("ADMINISTRADOR")</string>
     <string name="CREAR_ROL_EMPLEADO">INSERT INTO roles VALUES("EMPLEADO")</string>
 

@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">proyectoPadel</string>
-    <string name="blanco"/>
+    <string name="blanco" />
     <string name="tipo_dato_invalido">Los datos introducidos no son correctos</string>
-
 
 
 </resources>

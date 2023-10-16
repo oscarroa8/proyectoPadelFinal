@@ -38,8 +38,8 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_RESERVARPISTA));
         sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_MATERIAL));
         sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_ALQUILER));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_TORNEOS));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_PARTICIPACIONES));
+       // sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_TORNEOS));
+        //sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_PARTICIPACIONES));
         sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_ROL_ADMINISTRADOR));
         sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_ROL_EMPLEADO));
         sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_SUPERUSUARIO));
@@ -56,8 +56,8 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_RESERVARPISTA));
         sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_MATERIAL));
         sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_ALQUILER));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_TORNEOS));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_PARTICIPACIONES));
+        //sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_TORNEOS));
+        //sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_PARTICIPACIONES));
         onCreate(sqLiteDatabase);
     }
 
@@ -99,7 +99,7 @@ public class Database extends SQLiteOpenHelper {
 
     ///////////////////////////////////////TORNEOS////////////////////////////////////////////////
 
-    public Integer insertarTorneo(Torneo torneo) {
+    /*public Integer insertarTorneo(Torneo torneo) {
         return new TorneoRepositorio(bd).insertar(torneo);
     }
 
@@ -110,7 +110,7 @@ public class Database extends SQLiteOpenHelper {
     public void borrarTorneo(Torneo torneo) {
         new TorneoRepositorio(bd).borrar(torneo);
     }
-
+*/
     ///////////////////////////////////////EQUIPOS/////////////////////////////////////////////////
 
     public Integer insertarEquipo(Equipo equipo) {
