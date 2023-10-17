@@ -3,6 +3,8 @@ package com.example.proyectopadel;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -14,10 +16,28 @@ public class AlquilerMaterial extends AppCompatActivity {
         setContentView(R.layout.activity_alquiler_material);
         comboMaterial = findViewById(R.id.spinnerAlquilerMaterial);
 
-        //Cargar el spinner con los valores  fichero de opciones que creamos
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.combo_material, android.R.layout.simple_spinner_item);
+        // Obtén el array de recursos desde arrays.xml
+        String[] elementos = getResources().getStringArray(R.array.combo_material);
 
-        //Cargamos el combo con el adaptador
-        comboMaterial.setAdapter(adapter);
+// Crea un adaptador utilizando el array de recursos
+        ArrayAdapter<String> adaptador = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, elementos);
+        adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+// Asigna el adaptador al Spinner
+        comboMaterial.setAdapter(adaptador);
+
+        comboMaterial.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int posicion, long id) {
+                String elementoSeleccionado = elementos[posicion];
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Se llama cuando no se ha seleccionado ningún elemento
+            }
+        });
+
     }
 }

@@ -20,12 +20,38 @@
 
     <Spinner
         android:id="@+id/spinnerAlquilerMaterial"
-        android:layout_width="152dp"
-        android:layout_height="69dp"
+        android:layout_width="141dp"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.103"></Spinner>
+        app:layout_constraintVertical_bias="0.113"></Spinner>
+
+    <TextView
+        android:id="@+id/tvEleccion"
+        android:layout_width="218dp"
+        android:layout_height="56dp"
+        android:text="Elige el material que quieras alquilar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.111" />
+
+    <TextView
+        android:id="@+id/tvUnidades"
+        android:layout_width="178dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="52dp"
+        android:text="Numero de unidades disponibles"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEleccion"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
