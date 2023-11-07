@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoPadel">
         <activity
+            android:name=".ReservaPista"
+            android:exported="true" />
+        <activity
+            android:name=".nuevaPista"
+            android:exported="true" />
+        <activity
             android:name=".pistas"
             android:exported="true" />
         <activity

@@ -3,18 +3,18 @@ package com.example.proyectopadel.back.entidades;
 import java.io.Serializable;
 import java.util.Date;
 
-public class ReservaPista implements Serializable {
+public class ReservarPista implements Serializable {
     private Integer idPista;
     private Integer idCliente;
     private Date fechaInicio;
     private Date fechaFin;
     private double precioFinal;
 
-    public ReservaPista() {
+    public ReservarPista() {
     }
 
-    public ReservaPista(Integer idPista, Integer idCliente, Date fechaInicio, Date fechaFin,
-                        double precioFinal) {
+    public ReservarPista(Integer idPista, Integer idCliente, Date fechaInicio, Date fechaFin,
+                         double precioFinal) {
         this.idPista = idPista;
         this.idCliente = idCliente;
         this.fechaInicio = fechaInicio;
