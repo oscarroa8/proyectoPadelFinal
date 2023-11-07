@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoPadel">
         <activity
+            android:name=".pistas"
+            android:exported="true" />
+        <activity
             android:name=".AlquilerMaterial"
             android:exported="true" />
         <activity
