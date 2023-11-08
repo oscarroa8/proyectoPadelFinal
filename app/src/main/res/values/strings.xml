@@ -4,4 +4,10 @@
     <string name="tipo_dato_invalido">Los datos introducidos no son correctos</string>
 
 
+    <string name="usuarios">Usuarios</string>
+    <string name="alquiler">Alquiler de material</string>
+
+
+
+
 </resources>
