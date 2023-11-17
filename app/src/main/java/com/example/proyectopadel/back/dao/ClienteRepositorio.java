@@ -10,6 +10,7 @@ import com.example.proyectopadel.back.interfaces.ICliente;
 import com.example.proyectopadel.utilidades.Constantes;
 import com.example.proyectopadel.utilidades.db.Scripts;
 
+import java.util.List;
 import java.util.Objects;
 
 public class ClienteRepositorio implements ICliente<Cliente> {
@@ -41,6 +42,11 @@ public class ClienteRepositorio implements ICliente<Cliente> {
         String SQL = Constantes.SELECCIONAR_TODO + Scripts.TABLA_CLIENTES + Constantes.DONDE + Scripts.CAMPO_IDCLIENTE + Constantes.SIMBOLO_IGUAL + id;
         Cursor c = bd.rawQuery(SQL, null);
         return buscarClienteUnico(c);
+    }
+
+    @Override
+    public List<Cliente> findAll() {
+        throw new UnsupportedOperationException();
     }
 
     private ContentValues rellenarCliente(Cliente cliente) {

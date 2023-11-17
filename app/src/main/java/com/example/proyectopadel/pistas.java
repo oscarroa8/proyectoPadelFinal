@@ -10,22 +10,26 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.proyectopadel.back.Database;
+import com.example.proyectopadel.back.dao.PistaRepositorio;
 import com.example.proyectopadel.back.entidades.Pista;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class pistas extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private ListView listaPistas;
     ListAdapter adaptador;
-    private List<Pista> listaPista;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pistas);
         listaPistas = findViewById(R.id.listviewPistas);
 
-        listaPista.add(new Pista("pista1","moqueta",25));
-        adaptador = new ListAdapter(pistas.this,R.layout.row_pistas,listaPista);
+        Database bd = new Database(this);
+        List<Pista> listaPista = new ArrayList<>();
+        PistaRepositorio pr = new PistaRepositorio(bd.getWritableDatabase());
+        adaptador = new ListAdapter(pistas.this,R.layout.row_pistas, pr.findAll());
         listaPistas.setAdapter(adaptador);
     }
 

@@ -4,12 +4,14 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.proyectopadel.back.entidades.Cliente;
 import com.example.proyectopadel.back.entidades.Equipo;
 import com.example.proyectopadel.back.entidades.Pista;
 import com.example.proyectopadel.back.interfaces.IEquipo;
 import com.example.proyectopadel.utilidades.Constantes;
 import com.example.proyectopadel.utilidades.db.Scripts;
 
+import java.util.List;
 import java.util.Objects;
 
 public class EquipoRepositorio implements IEquipo<Equipo> {
@@ -43,6 +45,10 @@ public class EquipoRepositorio implements IEquipo<Equipo> {
         Cursor c = bd.rawQuery(SQL, null);
         return buscarEquipo(c);    }
 
+    @Override
+    public List<Equipo> findAll() {
+        throw new UnsupportedOperationException();
+    }
     private ContentValues rellenarEquipo(Equipo equipo) {
         ContentValues cv = new ContentValues();
         cv.put(Scripts.CAMPO_NOMBREEQUIPO, equipo.getNombreEquipo());

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.proyectopadel.R;
+import com.example.proyectopadel.back.entidades.Cliente;
 import com.example.proyectopadel.back.entidades.Rol;
 import com.example.proyectopadel.back.entidades.Usuario;
 import com.example.proyectopadel.back.interfaces.IUsuario;
@@ -13,6 +14,7 @@ import com.example.proyectopadel.utilidades.Constantes;
 import com.example.proyectopadel.utilidades.db.Scripts;
 import com.example.proyectopadel.utilidades.enums.Roles;
 
+import java.util.List;
 import java.util.Objects;
 
 public class UsuarioRepositorio implements IUsuario<Usuario> {
@@ -61,7 +63,10 @@ public class UsuarioRepositorio implements IUsuario<Usuario> {
         Cursor c = bd.rawQuery(SQL, new String[]{email, contrasena});
         return buscarUsuarioUnico(c);
     }
-
+    @Override
+    public List<Usuario> findAll() {
+        throw new UnsupportedOperationException();
+    }
     //region metodos auxiliares
 
     private ContentValues rellenarUsuario(Usuario usuario) {

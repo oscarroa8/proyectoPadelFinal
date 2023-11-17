@@ -5,11 +5,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.proyectopadel.back.entidades.Pista;
-import com.example.proyectopadel.back.entidades.Torneo;
 import com.example.proyectopadel.back.interfaces.IPista;
 import com.example.proyectopadel.utilidades.Constantes;
 import com.example.proyectopadel.utilidades.db.Scripts;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class PistaRepositorio implements IPista<Pista> {
@@ -41,7 +42,25 @@ public class PistaRepositorio implements IPista<Pista> {
     public Pista getById(Integer id) {
         String SQL = Constantes.SELECCIONAR_TODO + Scripts.TABLA_PISTAS + Constantes.DONDE + Scripts.CAMPO_IDPISTA + Constantes.SIMBOLO_IGUAL + id;
         Cursor c = bd.rawQuery(SQL, null);
-        return buscarPista(c);
+        c.moveToFirst();
+        Pista pista = cursorAPista(c);
+        Objects.requireNonNull(c).close();
+        return pista;
+    }
+
+    @Override
+    public List<Pista> findAll() {
+
+        List<Pista> pistas = new ArrayList<>();
+        String SQL = Constantes.SELECCIONAR_TODO + Scripts.TABLA_PISTAS;
+        Cursor c = bd.rawQuery(SQL, null);
+        if (c.moveToFirst()) {
+            do {
+                pistas.add(cursorAPista(c));
+            } while (c.moveToNext());
+        }
+        Objects.requireNonNull(c).close();
+        return pistas;
     }
 
     private ContentValues rellenarPista(Pista pista) {
@@ -52,19 +71,10 @@ public class PistaRepositorio implements IPista<Pista> {
         return cv;
     }
 
-    private Pista buscarPista(Cursor c) {
-        Pista pista = null;
-        if (c != null && c.getCount() > 0) {
-            c.moveToFirst();
-            do {
-                pista = new Pista(c.getInt(c.getColumnIndexOrThrow(Scripts.CAMPO_IDPISTA)),
-                        c.getString(c.getColumnIndexOrThrow(Scripts.CAMPO_NOMBREPISTA)),
-                        c.getString(c.getColumnIndexOrThrow(Scripts.CAMPO_MATERIAL)),
-                        c.getInt(c.getColumnIndexOrThrow(Scripts.CAMPO_PRECIO)));
-
-            } while (c.moveToNext());
-        }
-        Objects.requireNonNull(c).close();
-        return pista;
+    private Pista cursorAPista(Cursor c) {
+        return new Pista(c.getInt(c.getColumnIndexOrThrow(Scripts.CAMPO_IDPISTA)),
+                c.getString(c.getColumnIndexOrThrow(Scripts.CAMPO_NOMBREPISTA)),
+                c.getString(c.getColumnIndexOrThrow(Scripts.CAMPO_MATERIAL)),
+                c.getInt(c.getColumnIndexOrThrow(Scripts.CAMPO_PRECIO)));
     }
 }

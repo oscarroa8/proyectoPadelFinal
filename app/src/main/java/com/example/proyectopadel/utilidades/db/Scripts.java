@@ -67,6 +67,20 @@ public class Scripts {
     public static final String CAMPO_FECHAINIPARTICIPACION = "fechaIniParticipacion";
     public static final String CAMPO_FECHAFINPARTICIPACION = "fechaFinParticipacion";
 
+    public static final String DROP_TABLE="drop table if exists ";
+
+    public static final String BORRAR_TABLA_ROLES= DROP_TABLE+TABLA_ROLES;
+    public static final String BORRAR_TABLA_USUARIOS= DROP_TABLE+TABLA_USUARIOS;
+    public static final String BORRAR_TABLA_EQUIPOS= DROP_TABLE+TABLA_EQUIPOS;
+    public static final String BORRAR_TABLA_CLIENTE= DROP_TABLE+TABLA_CLIENTES;
+    public static final String BORRAR_TABLA_PISTA= DROP_TABLE+TABLA_PISTAS;
+    public static final String BORRAR_TABLA_RESERVAPISTA= DROP_TABLE+TABLA_RESERVARPISTA;
+    public static final String BORRAR_TABLA_MATERIAL= DROP_TABLE+TABLA_MATERIAL;
+    public static final String BORRAR_TABLA_ALQUILER= DROP_TABLE+TABLA_ALQUILER;
+
+
+
+
     public static final String CREAR_TABLA_ROLES = "CREATE TABLE " + "" + TABLA_ROLES + "(" + CAMPO_IDROL + " " + "INTEGER PRIMARY KEY AUTOINCREMENT not null, " + CAMPO_ROL + " TEXT)";
     public static final String CREAR_TABLA_USUARIO = "CREATE TABLE " + "" + TABLA_USUARIOS + "(" + CAMPO_IDUSUARIO + " " + "INTEGER PRIMARY KEY AUTOINCREMENT not null, " + CAMPO_NOMBREUSUARIO + " TEXT," + CAMPO_APELLIDO1USU + " TEXT," + CAMPO_APELLIDO2USU + " TEXT," + CAMPO_EMAILUSU + " TEXT," + CAMPO_CONTRASENAUSU + " TEXT,"+ CAMPO_IDROL +" INTEGER,  FOREIGN KEY(" + CAMPO_IDROL + ") REFERENCES roles(idRol))";
     public static final String CREAR_TABLA_EQUIPOS = "CREATE TABLE " + "" + TABLA_EQUIPOS + "(" + CAMPO_IDEQUIPO + " " + "INTEGER PRIMARY KEY AUTOINCREMENT not null, " + CAMPO_NOMBREEQUIPO + " TEXT," + CAMPO_COLORPRINCIPAL + " TEXT," + CAMPO_COLORSECUNDARIO + " INTEGER)";

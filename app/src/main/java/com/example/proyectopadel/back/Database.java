@@ -9,12 +9,11 @@ import androidx.annotation.Nullable;
 import com.example.proyectopadel.R;
 import com.example.proyectopadel.back.dao.ClienteRepositorio;
 import com.example.proyectopadel.back.dao.EquipoRepositorio;
-import com.example.proyectopadel.back.dao.TorneoRepositorio;
 import com.example.proyectopadel.back.dao.UsuarioRepositorio;
 import com.example.proyectopadel.back.entidades.Cliente;
 import com.example.proyectopadel.back.entidades.Equipo;
-import com.example.proyectopadel.back.entidades.Torneo;
 import com.example.proyectopadel.back.entidades.Usuario;
+import com.example.proyectopadel.back.interfaces.Operaciones;
 import com.example.proyectopadel.utilidades.Constantes;
 import com.example.proyectopadel.utilidades.db.Scripts;
 
@@ -30,32 +29,32 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_ROLES));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_USUARIOS));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_EQUIPOS));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_CLIENTES));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_PISTA));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_RESERVARPISTA));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_MATERIAL));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_ALQUILER));
+        sqLiteDatabase.execSQL(Scripts.CREAR_TABLA_ROLES);
+        sqLiteDatabase.execSQL(Scripts.CREAR_TABLA_USUARIO);
+        sqLiteDatabase.execSQL(Scripts.CREAR_TABLA_EQUIPOS);
+        sqLiteDatabase.execSQL(Scripts.CREAR_TABLA_CLIENTE);
+        sqLiteDatabase.execSQL(Scripts.CREAR_TABLA_PISTA);
+        sqLiteDatabase.execSQL(Scripts.CREAR_TABLA_RESERVARPISTA);
+        sqLiteDatabase.execSQL(Scripts.CREAR_TABLA_MATERIAL);
+        sqLiteDatabase.execSQL(Scripts.CREAR_TABLA_ALQUILER);
        // sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_TORNEOS));
         //sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_TABLA_PARTICIPACIONES));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_ROL_ADMINISTRADOR));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_ROL_EMPLEADO));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_SUPERUSUARIO));
+       // sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_ROL_ADMINISTRADOR));
+        //sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_ROL_EMPLEADO));
+       // sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.CREAR_SUPERUSUARIO));
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_ROLES));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_USUARIOS));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_EQUIPOS));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_CLIENTE));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_PISTA));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_RESERVARPISTA));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_MATERIAL));
-        sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_ALQUILER));
+        sqLiteDatabase.execSQL(Scripts.BORRAR_TABLA_ROLES);
+        sqLiteDatabase.execSQL(Scripts.BORRAR_TABLA_USUARIOS);
+        sqLiteDatabase.execSQL(Scripts.BORRAR_TABLA_EQUIPOS);
+        sqLiteDatabase.execSQL(Scripts.BORRAR_TABLA_CLIENTE);
+        sqLiteDatabase.execSQL(Scripts.BORRAR_TABLA_PISTA);
+        sqLiteDatabase.execSQL(Scripts.BORRAR_TABLA_RESERVAPISTA);
+        sqLiteDatabase.execSQL(Scripts.BORRAR_TABLA_MATERIAL);
+        sqLiteDatabase.execSQL(Scripts.BORRAR_TABLA_ALQUILER);
         //sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_TORNEOS));
         //sqLiteDatabase.execSQL(contexto.getResources().getString(R.string.BORRAR_TABLA_PARTICIPACIONES));
         onCreate(sqLiteDatabase);

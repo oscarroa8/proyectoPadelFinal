@@ -42,7 +42,7 @@ public class ListAdapter extends ArrayAdapter<Pista> {
         TextView tvMaterial = view.findViewById(R.id.tvMaterialRow);
         tvMaterial.setText(pista.getMaterial());
         TextView tvPrecio = view.findViewById(R.id.tvPrecioRow);
-        tvPrecio.setText(pista.getPrecio());
+        tvPrecio.setText(Integer.toString(pista.getPrecio()));
 
 
         return view;
