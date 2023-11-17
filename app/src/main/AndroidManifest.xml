@@ -21,7 +21,14 @@
             android:exported="true" />
         <activity
             android:name=".pistas"
-            android:exported="true" />
+            android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
         <activity
             android:name=".AlquilerMaterial"
             android:exported="true" />
@@ -30,13 +37,8 @@
             android:exported="true" />
         <activity
             android:name=".controllers.login"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

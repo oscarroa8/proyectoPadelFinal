@@ -7,13 +7,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
-public class pistas extends AppCompatActivity {
+import com.example.proyectopadel.back.entidades.Pista;
 
+import java.util.List;
+
+public class pistas extends AppCompatActivity implements AdapterView.OnItemClickListener {
+    private ListView listaPistas;
+    ListAdapter adaptador;
+    private List<Pista> listaPista;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pistas);
+        listaPistas = findViewById(R.id.listviewPistas);
+
+        listaPista.add(new Pista("pista1","moqueta",25));
+        adaptador = new ListAdapter(pistas.this,R.layout.row_pistas,listaPista);
+        listaPistas.setAdapter(adaptador);
     }
 
     public boolean onCreateOptionMenu(Menu menu){
@@ -42,5 +55,10 @@ public class pistas extends AppCompatActivity {
     public void pantallaDatosPista (View view){
         Intent intent = new Intent(this,datosPista.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        pantallaDatosPista(view);
     }
 }

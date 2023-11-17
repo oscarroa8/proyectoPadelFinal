@@ -24,9 +24,10 @@
         android:id="@+id/tvCalendario"
         android:layout_width="187dp"
         android:layout_height="45dp"
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="132dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

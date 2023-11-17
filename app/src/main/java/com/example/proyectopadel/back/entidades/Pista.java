@@ -19,6 +19,12 @@ public class Pista implements Serializable {
         this.precio = precio;
     }
 
+    public Pista( String nombrePista, String material, Integer precio) {
+        this.nombrePista = nombrePista;
+        this.material = material;
+        this.precio = precio;
+    }
+
     public Pista(Integer idPista, String nombre, String material, Integer precio,
                  Integer idUsuario) {
         this.idPista = idPista;
