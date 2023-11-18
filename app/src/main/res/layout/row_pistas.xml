@@ -10,8 +10,8 @@
         android:id="@+id/tvPrecioRow"
         android:layout_width="114dp"
         android:layout_height="42dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="268dp"
+        android:layout_marginTop="36dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/tvMaterialRow"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,8 +20,8 @@
         android:id="@+id/tvNombrePistaRow"
         android:layout_width="136dp"
         android:layout_height="43dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,8 +29,8 @@
         android:id="@+id/tvMaterialRow"
         android:layout_width="110dp"
         android:layout_height="42dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintStart_toEndOf="@+id/tvNombrePistaRow"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

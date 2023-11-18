@@ -34,7 +34,7 @@ public class Scripts {
     // Tabla Pistas
     public static final String TABLA_PISTAS = "pista";
     public static final String CAMPO_IDPISTA = "idPista";
-    public static final String CAMPO_NOMBREPISTA = "nombrepista";
+    public static final String CAMPO_NOMBREPISTA = "nombre";
     public static final String CAMPO_MATERIAL = "material";
     public static final String CAMPO_PRECIO = "precio";
 

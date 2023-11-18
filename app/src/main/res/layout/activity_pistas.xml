@@ -4,23 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="end"
+
     tools:context=".pistas">
 
-    <ListView
-        android:id="@+id/listviewPistas"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/botonflot"
+        android:id="@+id/floatingActionButton4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="336dp"
+        android:layout_gravity="bottom|center_vertical|end"
         android:clickable="true"
         android:onClick="pantallaCrearPista"
         app:srcCompat="@drawable/aniadir"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <ListView
+        android:id="@+id/listviewPistas"
+        android:layout_width="match_parent"
+        android:layout_height="524dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </ListView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
