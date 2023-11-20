@@ -2,6 +2,7 @@ package com.example.proyectopadel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -44,6 +45,8 @@ public class nuevaPista extends AppCompatActivity {
         if (!nombrePista.isEmpty() && !materialPista.isEmpty() && !precioPista.isEmpty()) {
             pr.insertar(p);
             Toast.makeText(this, "Datos insertados correctamente", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this,pistas.class);//Falta crear la clase usuarios
+            startActivity(intent);
         } else {
             Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
         }

@@ -25,6 +25,7 @@ public class pistas extends AppCompatActivity implements AdapterView.OnItemClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pistas);
         listaPistas = findViewById(R.id.listviewPistas);
+        listaPistas.setOnItemClickListener(this);
 
         Database bd = new Database(this);
         List<Pista> listaPista = new ArrayList<>();
