@@ -1,5 +1,6 @@
 package com.example.proyectopadel;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -25,32 +26,34 @@ public class pistas extends AppCompatActivity implements AdapterView.OnItemClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pistas);
         listaPistas = findViewById(R.id.listviewPistas);
+
         listaPistas.setOnItemClickListener(this);
 
         Database bd = new Database(this);
-        List<Pista> listaPista = new ArrayList<>();
+       // List<Pista> listaPista = new ArrayList<>();
         PistaRepositorio pr = new PistaRepositorio(bd.getWritableDatabase());
         adaptador = new ListAdapter(pistas.this,R.layout.row_pistas, pr.findAll());
         listaPistas.setAdapter(adaptador);
     }
 
-    public boolean onCreateOptionMenu(Menu menu){
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.overflow,menu);
         return true;
     }
 
-    public boolean onOptionsItemSelected(MenuItem item){
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.itemUsuarios){
             Intent intent = new Intent(this,nuevaPista.class);//Falta crear la clase usuarios
             startActivity(intent);
         }
         if(id == R.id.itemMateriales){
-            Intent intent = new Intent(this,nuevaPista.class);//falta crear la clase material
+            Intent intent = new Intent(this,AlquilerMaterial.class);//falta crear la clase material
             startActivity(intent);
         }
-        return true;
-    }
+        return super.onOptionsItemSelected(item);    }
 
     public void pantallaCrearPista (View view){
         Intent intent = new Intent(this,nuevaPista.class);
