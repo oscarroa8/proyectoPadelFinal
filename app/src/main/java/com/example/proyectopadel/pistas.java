@@ -13,14 +13,10 @@ import android.widget.ListView;
 
 import com.example.proyectopadel.back.Database;
 import com.example.proyectopadel.back.dao.PistaRepositorio;
-import com.example.proyectopadel.back.entidades.Pista;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class pistas extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private ListView listaPistas;
-    ListAdapter adaptador;
+    ListAdapterPistas adaptador;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +28,7 @@ public class pistas extends AppCompatActivity implements AdapterView.OnItemClick
         Database bd = new Database(this);
        // List<Pista> listaPista = new ArrayList<>();
         PistaRepositorio pr = new PistaRepositorio(bd.getWritableDatabase());
-        adaptador = new ListAdapter(pistas.this,R.layout.row_pistas, pr.findAll());
+        adaptador = new ListAdapterPistas(pistas.this,R.layout.row_pistas, pr.findAll());
         listaPistas.setAdapter(adaptador);
     }
 
@@ -46,7 +42,7 @@ public class pistas extends AppCompatActivity implements AdapterView.OnItemClick
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.itemUsuarios){
-            Intent intent = new Intent(this,nuevaPista.class);//Falta crear la clase usuarios
+            Intent intent = new Intent(this,Usuarios.class);//Falta crear la clase usuarios
             startActivity(intent);
         }
         if(id == R.id.itemMateriales){

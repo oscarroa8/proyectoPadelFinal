@@ -67,19 +67,19 @@ public class Database extends SQLiteOpenHelper {
     /////////////////////////////////////////USUARIOS//////////////////////////////////////////////
 
     public Integer insertarUsuario(Usuario usuario) {
-        return new UsuarioRepositorio(bd, contexto).insertar(usuario);
+        return new UsuarioRepositorio(bd).insertar(usuario);
     }
 
     public void actualizarUsuario(Usuario usuario) {
-        new UsuarioRepositorio(bd, contexto).actualizar(usuario);
+        new UsuarioRepositorio(bd).actualizar(usuario);
     }
 
     public void borrarUsuario(Usuario usuario) {
-        new UsuarioRepositorio(bd, contexto).borrar(usuario);
+        new UsuarioRepositorio(bd).borrar(usuario);
     }
 
     public Usuario obtenerUsuarioPorUsuarioYContrasena(String usuario, String contrasena) throws Exception {
-        return new UsuarioRepositorio(bd, contexto).obtenerUsuarioPorUsuarioYContrasena(usuario, contrasena);
+        return new UsuarioRepositorio(bd).obtenerUsuarioPorUsuarioYContrasena(usuario, contrasena);
     }
 
     ////////////////////////////////////////CLIENTES//////////////////////////////////////////////

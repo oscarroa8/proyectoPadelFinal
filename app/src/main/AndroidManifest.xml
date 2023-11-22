@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoPadel">
         <activity
+            android:name=".nuevoUsuario"
+            android:exported="true" />
+        <activity
+            android:name=".Usuarios"
+            android:exported="true" />
+        <activity
             android:name=".datosPista"
             android:exported="true" />
         <activity
@@ -21,14 +27,13 @@
             android:exported="true" />
         <activity
             android:name=".pistas"
-            android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
         <activity
             android:name=".AlquilerMaterial"
             android:exported="true" />
@@ -37,8 +42,7 @@
             android:exported="true" />
         <activity
             android:name=".controllers.login"
-            android:exported="true"/>
-
+            android:exported="true" />
     </application>
 
 </manifest>

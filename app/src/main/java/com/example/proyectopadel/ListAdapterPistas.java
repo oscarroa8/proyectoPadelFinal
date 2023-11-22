@@ -14,11 +14,11 @@ import com.example.proyectopadel.back.entidades.Pista;
 
 import java.util.List;
 
-public class ListAdapter extends ArrayAdapter<Pista> {
+public class ListAdapterPistas extends ArrayAdapter<Pista> {
     private List<Pista> listaPistas;
     private Context contexto;
     private int resourceLayout;
-    public ListAdapter(@NonNull Context context, int resource, List<Pista> objects) {
+    public ListAdapterPistas(@NonNull Context context, int resource, List<Pista> objects) {
         super(context, resource, objects);
         this.listaPistas=objects;
         this.contexto=context;
