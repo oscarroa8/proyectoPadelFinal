@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_vertical|end"
         android:clickable="true"
+        android:onClick="pantallaCrearUsuario"
         app:srcCompat="@drawable/aniadir"
         tools:ignore="SpeakableTextPresentCheck" />
 

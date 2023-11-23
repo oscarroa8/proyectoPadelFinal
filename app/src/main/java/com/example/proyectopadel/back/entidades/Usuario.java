@@ -18,7 +18,12 @@ public class Usuario implements Serializable {
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
         this.mail = mail;
-        this.contrasena = contrasena;
+    }
+    public Usuario(String nombre, String apellido1, String apellido2, String mail) {
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.mail = mail;
     }
 
     public Usuario(Integer idUsuario, String nombre, String apellido1, String apellido2,
@@ -30,6 +35,8 @@ public class Usuario implements Serializable {
         this.mail = mail;
         this.contrasena = contrasena;
     }
+
+
 
     public Integer getIdUsuario() {
         return idUsuario;

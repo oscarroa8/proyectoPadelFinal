@@ -10,11 +10,119 @@
         android:id="@+id/tvNuevo"
         android:layout_width="149dp"
         android:layout_height="45dp"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="404dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="Nuevo usuario"
+        android:textColor="@color/teal_200"
         android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNombreUsuario"
+        android:layout_width="148dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="96dp"
+        android:gravity="center"
+        android:text="Nombre"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etPrimerApellidoUsu"
+        android:layout_width="148dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="528dp"
+        android:layout_marginTop="96dp"
+        android:gravity="center"
+        android:text="Primer Apellido"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSegundoApellidoUsu"
+        android:layout_width="148dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="168dp"
+        android:gravity="center"
+        android:text="Segundo Apellido"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCorreoUsu"
+        android:layout_width="148dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="528dp"
+        android:layout_marginTop="160dp"
+        android:gravity="center"
+        android:text="Correo"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etNombreUsuario"
+        android:layout_width="245dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="252dp"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvNombreUsuario"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/etApellidoUsuario"
+        android:layout_width="245dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="700dp"
+        android:ems="10"
+        android:hint="Primer apellido"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/etPrimerApellidoUsu"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/etSegundoApellidoUsu"
+        android:layout_width="245dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="252dp"
+        android:ems="10"
+        android:hint="Segundo apellido"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvSegundoApellidoUsu"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/etCorreoUsu"
+        android:layout_width="245dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="700dp"
+        android:ems="10"
+        android:hint="Correo"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvCorreoUsu"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnCrearUsu"
+        android:layout_width="160dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="404dp"
+        android:layout_marginTop="296dp"
+        android:onClick="insertarUsuario"
+        android:text="Crear Usuario"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
