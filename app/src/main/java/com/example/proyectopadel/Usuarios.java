@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.proyectopadel.back.Database;
-import com.example.proyectopadel.back.dao.PistaRepositorio;
 import com.example.proyectopadel.back.dao.UsuarioRepositorio;
 
 public class Usuarios extends AppCompatActivity implements AdapterView.OnItemClickListener{
@@ -25,10 +23,10 @@ public class Usuarios extends AppCompatActivity implements AdapterView.OnItemCli
 
         listaUsuarios.setOnItemClickListener(this);
 
-        Database bd = new Database(this);
-        UsuarioRepositorio ur = new UsuarioRepositorio(bd.getWritableDatabase());
-        adaptador = new ListAdapterUsuarios(Usuarios.this,R.layout.row_usuarios, ur.findAll());
-        listaUsuarios.setAdapter(adaptador);
+        /*Database bd = new Database(this);
+        UsuarioRepositorio ur = new UsuarioRepositorio(bd.getWritableDatabase());*/
+       // adaptador = new ListAdapterUsuarios(Usuarios.this,R.layout.row_usuarios, ur.findAll());
+       // listaUsuarios.setAdapter(adaptador);
     }
     public void pantallaCrearUsuario (View view){
         Intent intent = new Intent(this,nuevoUsuario.class);

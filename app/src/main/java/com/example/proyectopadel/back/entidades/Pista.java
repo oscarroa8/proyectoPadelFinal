@@ -3,16 +3,16 @@ package com.example.proyectopadel.back.entidades;
 import java.io.Serializable;
 
 public class Pista implements Serializable {
-    private Integer idPista;
+    private String idPista;
     private String nombrePista;
     private String material;
     private Integer precio;
-    private Integer idUsuario;
+    private String idUsuario;
 
     public Pista() {
     }
 
-    public Pista(Integer idPista, String nombrePista, String material, Integer precio) {
+    public Pista(String idPista, String nombrePista, String material, Integer precio) {
         this.idPista = idPista;
         this.nombrePista = nombrePista;
         this.material = material;
@@ -25,8 +25,8 @@ public class Pista implements Serializable {
         this.precio = precio;
     }
 
-    public Pista(Integer idPista, String nombre, String material, Integer precio,
-                 Integer idUsuario) {
+    public Pista(String idPista, String nombre, String material, Integer precio,
+                 String idUsuario) {
         this.idPista = idPista;
         this.nombrePista = nombre;
         this.material = material;
@@ -34,11 +34,11 @@ public class Pista implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Integer getIdPista() {
+    public String getIdPista() {
         return idPista;
     }
 
-    public void setIdPista(Integer idPista) {
+    public void setIdPista(String idPista) {
         this.idPista = idPista;
     }
 
@@ -66,11 +66,11 @@ public class Pista implements Serializable {
         this.precio = precio;
     }
 
-    public Integer getIdUsuario() {
+    public String getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
+    public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
     }
 

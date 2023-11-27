@@ -1,22 +1,16 @@
 package com.example.proyectopadel.back.dao;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.proyectopadel.R;
-import com.example.proyectopadel.Usuarios;
-import com.example.proyectopadel.back.entidades.Cliente;
 import com.example.proyectopadel.back.entidades.Pista;
-import com.example.proyectopadel.back.entidades.Rol;
 import com.example.proyectopadel.back.entidades.Usuario;
 import com.example.proyectopadel.back.interfaces.IUsuario;
 import com.example.proyectopadel.utilidades.Constantes;
 import com.example.proyectopadel.utilidades.db.Scripts;
-import com.example.proyectopadel.utilidades.enums.Roles;
+import com.google.android.gms.tasks.Task;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,8 +23,8 @@ public class UsuarioRepositorio implements IUsuario<Usuario> {
 
 
     @Override
-    public Integer insertar(Usuario usuario) {
-        return (int) bd.insert(Scripts.TABLA_USUARIOS, null, rellenarUsuario(usuario));
+    public Task<String> insertar(Usuario usuario) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -77,18 +71,9 @@ public class UsuarioRepositorio implements IUsuario<Usuario> {
         throw new UnsupportedOperationException();
     }
     @Override
-    public List<Usuario> findAll() {
+    public Task<List<Pista>> findAll() {
 
-        List<Usuario> usuarios = new ArrayList<>();
-        String SQL = Constantes.SELECCIONAR_TODO + Scripts.TABLA_USUARIOS;
-        Cursor c = bd.rawQuery(SQL, null);
-        if (c.moveToFirst()) {
-            do {
-                usuarios.add(cursorAUsuario(c));
-            } while (c.moveToNext());
-        }
-        Objects.requireNonNull(c).close();
-        return usuarios;
+        throw new UnsupportedOperationException();
     }
 
     private Usuario cursorAUsuario(Cursor c) {

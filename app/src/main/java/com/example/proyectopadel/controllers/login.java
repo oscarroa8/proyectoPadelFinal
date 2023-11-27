@@ -2,18 +2,15 @@ package com.example.proyectopadel.controllers;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.proyectopadel.R;
-import com.example.proyectopadel.back.Database;
 import com.example.proyectopadel.back.entidades.Usuario;
 
 public class login extends AppCompatActivity {
-    private Database db;
     private Button entrar;
     private EditText etUsuario, etContrasena;
     private Usuario usuarioLogeado=null;
@@ -31,9 +28,9 @@ public class login extends AppCompatActivity {
     }
 
     private void cargarBaseDatos() {
-        this.db = new Database(this);
+     /*this.db = new Database(this);
         this.db.insertarUsuario(new Usuario("PIRI" ,"ROALES","GONZALEZ","org@gmail.com","contrasena"));
-
+*/
     }
 
     private void elementosIntefaz() {
@@ -43,7 +40,7 @@ public class login extends AppCompatActivity {
     }
 
     private void login(){
-        try{
+       /* try{
             usuarioLogeado = db.obtenerUsuarioPorUsuarioYContrasena(etUsuario.getText().toString().trim(), etContrasena.getText().toString().trim());
             if(usuarioLogeado == null)
                 usuarioLogeado = db.obtenerUsuarioPorUsuarioYContrasena(etUsuario.getText().toString().trim(), etContrasena.getText().toString().trim());
@@ -54,7 +51,7 @@ public class login extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
             loginIncorrecto();
-        }
+        }*/
     }
 
     private void loginIncorrecto(){

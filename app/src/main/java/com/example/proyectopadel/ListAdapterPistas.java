@@ -15,12 +15,10 @@ import com.example.proyectopadel.back.entidades.Pista;
 import java.util.List;
 
 public class ListAdapterPistas extends ArrayAdapter<Pista> {
-    private List<Pista> listaPistas;
     private Context contexto;
     private int resourceLayout;
     public ListAdapterPistas(@NonNull Context context, int resource, List<Pista> objects) {
         super(context, resource, objects);
-        this.listaPistas=objects;
         this.contexto=context;
         this.resourceLayout = resource;
     }
@@ -35,7 +33,7 @@ public class ListAdapterPistas extends ArrayAdapter<Pista> {
             view = LayoutInflater.from(contexto).inflate(resourceLayout,null);
         }
 
-        Pista pista = listaPistas.get(position);
+        Pista pista = getItem(position);
 
         TextView tvNombre = view.findViewById(R.id.tvNombrePistaRow);
         tvNombre.setText(pista.getNombrePista());
@@ -46,5 +44,10 @@ public class ListAdapterPistas extends ArrayAdapter<Pista> {
 
 
         return view;
+    }
+
+    public void setPistas(List<Pista> result) {
+        clear();
+        addAll(result);
     }
 }

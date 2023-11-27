@@ -5,24 +5,25 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.proyectopadel.back.entidades.Cliente;
-import com.example.proyectopadel.back.entidades.Usuario;
+import com.example.proyectopadel.back.entidades.Pista;
 import com.example.proyectopadel.back.interfaces.ICliente;
 import com.example.proyectopadel.utilidades.Constantes;
 import com.example.proyectopadel.utilidades.db.Scripts;
+import com.google.android.gms.tasks.Task;
 
 import java.util.List;
 import java.util.Objects;
 
-public class ClienteRepositorio implements ICliente<Cliente> {
-    private final SQLiteDatabase bd;
+public class ClienteRepositorio   {
+   // private final SQLiteDatabase bd;
 
-    public ClienteRepositorio(SQLiteDatabase bd) {
+   /* public ClienteRepositorio(SQLiteDatabase bd) {
         this.bd = bd;
     }
 
     @Override
-    public Integer insertar(Cliente cliente) {
-        return (int) bd.insert(Scripts.TABLA_CLIENTES, null, rellenarCliente(cliente));
+    /*public Task<String> insertar(Cliente cliente) {
+        /*return (int) bd.insert(Scripts.TABLA_CLIENTES, null, rellenarCliente(cliente));
     }
 
     @Override
@@ -45,7 +46,7 @@ public class ClienteRepositorio implements ICliente<Cliente> {
     }
 
     @Override
-    public List<Cliente> findAll() {
+    public Task<List<Pista>> findAll() {
         throw new UnsupportedOperationException();
     }
 
@@ -74,6 +75,6 @@ public class ClienteRepositorio implements ICliente<Cliente> {
         }
         Objects.requireNonNull(c).close();
         return cliente;
-    }
+    }*/
 
 }

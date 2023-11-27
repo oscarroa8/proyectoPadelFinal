@@ -1,80 +1,81 @@
 package com.example.proyectopadel.back.dao;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.proyectopadel.back.entidades.Pista;
 import com.example.proyectopadel.back.interfaces.IPista;
-import com.example.proyectopadel.utilidades.Constantes;
-import com.example.proyectopadel.utilidades.db.Scripts;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class PistaRepositorio implements IPista<Pista> {
-    private final SQLiteDatabase bd;
+    private final FirebaseFirestore bd;
 
-    public PistaRepositorio(SQLiteDatabase bd) {
+    private static final String TAG = PistaRepositorio.class.getName();
+
+    public PistaRepositorio(FirebaseFirestore bd) {
         this.bd = bd;
     }
 
     @Override
-    public Integer insertar(Pista pista) {
-        return (int) bd.insert(Scripts.TABLA_PISTAS, null, rellenarPista(pista));
-
+    public Task<String> insertar(Pista pista) {
+        return bd.collection("pistas")
+                .add(pista)
+                .continueWith(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentReference doc = task.getResult();
+                        return doc.getId();
+                    }
+                    else {
+                        Log.w(TAG, "Error en consulta de firebase", task.getException());
+                        return null;
+                    }
+                });
     }
 
     @Override
     public void actualizar(Pista pista) {
-        bd.update(Scripts.TABLA_PISTAS, rellenarPista(pista), Scripts.CAMPO_IDPISTA
-                + Constantes.SIMBOLO_IGUAL + pista.getIdPista(), null);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void borrar(Pista pista) {
-        bd.delete(Scripts.TABLA_PISTAS, Scripts.CAMPO_IDPISTA
-                + Constantes.SIMBOLO_IGUAL + pista.getIdPista(), null);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Pista getById(Integer id) {
-        String SQL = Constantes.SELECCIONAR_TODO + Scripts.TABLA_PISTAS + Constantes.DONDE + Scripts.CAMPO_IDPISTA + Constantes.SIMBOLO_IGUAL + id;
-        Cursor c = bd.rawQuery(SQL, null);
-        c.moveToFirst();
-        Pista pista = cursorAPista(c);
-        Objects.requireNonNull(c).close();
-        return pista;
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public List<Pista> findAll() {
+    public Task<List<Pista>> findAll() {
 
-        List<Pista> pistas = new ArrayList<>();
-        String SQL = Constantes.SELECCIONAR_TODO + Scripts.TABLA_PISTAS;
-        Cursor c = bd.rawQuery(SQL, null);
-        if (c.moveToFirst()) {
-            do {
-                pistas.add(cursorAPista(c));
-            } while (c.moveToNext());
-        }
-        Objects.requireNonNull(c).close();
-        return pistas;
+        return bd.collection("pistas")
+                .get()
+                .continueWith( task -> {
+                        List<Pista> pistas = new ArrayList<>();
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Pista p = new Pista(
+                                        document.getId(),
+                                        document.get("nombre", String.class),
+                                        document.get("material", String.class),
+                                        document.get("precio", Integer.class)
+                                );
+                                pistas.add(p);
+                            }
+                        }
+                        else {
+                            Log.w(TAG, "Error en consulta de firebase", task.getException());
+                        }
+                        return pistas;
+                    }
+                );
     }
 
-    private ContentValues rellenarPista(Pista pista) {
-        ContentValues cv = new ContentValues();
-        cv.put(Scripts.CAMPO_NOMBREPISTA, pista.getNombrePista());
-        cv.put(Scripts.CAMPO_MATERIAL, pista.getMaterial());
-        cv.put(Scripts.CAMPO_PRECIO, pista.getPrecio());
-        return cv;
-    }
-
-    private Pista cursorAPista(Cursor c) {
-        return new Pista(c.getInt(c.getColumnIndexOrThrow(Scripts.CAMPO_IDPISTA)),
-                c.getString(c.getColumnIndexOrThrow(Scripts.CAMPO_NOMBREPISTA)),
-                c.getString(c.getColumnIndexOrThrow(Scripts.CAMPO_MATERIAL)),
-                c.getInt(c.getColumnIndexOrThrow(Scripts.CAMPO_PRECIO)));
-    }
 }

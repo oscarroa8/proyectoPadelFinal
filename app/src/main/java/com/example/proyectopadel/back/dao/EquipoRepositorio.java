@@ -4,25 +4,25 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.proyectopadel.back.entidades.Cliente;
 import com.example.proyectopadel.back.entidades.Equipo;
 import com.example.proyectopadel.back.entidades.Pista;
 import com.example.proyectopadel.back.interfaces.IEquipo;
 import com.example.proyectopadel.utilidades.Constantes;
 import com.example.proyectopadel.utilidades.db.Scripts;
+import com.google.android.gms.tasks.Task;
 
 import java.util.List;
 import java.util.Objects;
 
-public class EquipoRepositorio implements IEquipo<Equipo> {
-    private final SQLiteDatabase bd;
+public class EquipoRepositorio   {
+   /* private final SQLiteDatabase bd;
 
     public EquipoRepositorio(SQLiteDatabase bd) {
         this.bd = bd;
     }
 
     @Override
-    public Integer insertar(Equipo equipo) {
+    public Task<String> insertar(Equipo equipo) {
         return (int) bd.insert(Scripts.TABLA_EQUIPOS, null, rellenarEquipo(equipo));
 
     }
@@ -46,7 +46,7 @@ public class EquipoRepositorio implements IEquipo<Equipo> {
         return buscarEquipo(c);    }
 
     @Override
-    public List<Equipo> findAll() {
+    public Task<List<Pista>> findAll() {
         throw new UnsupportedOperationException();
     }
     private ContentValues rellenarEquipo(Equipo equipo) {
@@ -72,6 +72,6 @@ public class EquipoRepositorio implements IEquipo<Equipo> {
         Objects.requireNonNull(c).close();
         return equipo;
     }
-
+*/
 
 }

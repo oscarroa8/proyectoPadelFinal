@@ -11,8 +11,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.proyectopadel.back.Database;
 import com.example.proyectopadel.back.dao.PistaRepositorio;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 
 public class pistas extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private ListView listaPistas;
@@ -25,11 +27,13 @@ public class pistas extends AppCompatActivity implements AdapterView.OnItemClick
 
         listaPistas.setOnItemClickListener(this);
 
-        Database bd = new Database(this);
-       // List<Pista> listaPista = new ArrayList<>();
-        PistaRepositorio pr = new PistaRepositorio(bd.getWritableDatabase());
-        adaptador = new ListAdapterPistas(pistas.this,R.layout.row_pistas, pr.findAll());
+        FirebaseFirestore bd = FirebaseFirestore.getInstance();
+        PistaRepositorio pr = new PistaRepositorio(bd);
+        adaptador = new ListAdapterPistas(pistas.this,R.layout.row_pistas, new ArrayList<>());
         listaPistas.setAdapter(adaptador);
+        pr.findAll().addOnCompleteListener(task -> {
+           adaptador.setPistas(task.getResult());
+        });
     }
 
     @Override
