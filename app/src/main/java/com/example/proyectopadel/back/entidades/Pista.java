@@ -4,35 +4,27 @@ import java.io.Serializable;
 
 public class Pista implements Serializable {
     private String idPista;
-    private String nombrePista;
+    private String nombre;
     private String material;
     private Integer precio;
-    private String idUsuario;
 
     public Pista() {
     }
 
-    public Pista(String idPista, String nombrePista, String material, Integer precio) {
+    public Pista(String idPista, String nombre, String material, Integer precio) {
         this.idPista = idPista;
-        this.nombrePista = nombrePista;
+        this.nombre = nombre;
         this.material = material;
         this.precio = precio;
     }
 
-    public Pista( String nombrePista, String material, Integer precio) {
-        this.nombrePista = nombrePista;
+    public Pista( String nombre, String material, Integer precio) {
+        this.nombre = nombre;
         this.material = material;
         this.precio = precio;
     }
 
-    public Pista(String idPista, String nombre, String material, Integer precio,
-                 String idUsuario) {
-        this.idPista = idPista;
-        this.nombrePista = nombre;
-        this.material = material;
-        this.precio = precio;
-        this.idUsuario = idUsuario;
-    }
+
 
     public String getIdPista() {
         return idPista;
@@ -42,12 +34,12 @@ public class Pista implements Serializable {
         this.idPista = idPista;
     }
 
-    public String getNombrePista() {
-        return nombrePista;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombrePista(String nombrePista) {
-        this.nombrePista = nombrePista;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getMaterial() {
@@ -66,12 +58,6 @@ public class Pista implements Serializable {
         this.precio = precio;
     }
 
-    public String getIdUsuario() {
-        return idUsuario;
-    }
 
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
-    }
 
 }

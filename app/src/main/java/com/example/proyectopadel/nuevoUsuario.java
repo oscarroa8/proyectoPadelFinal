@@ -11,10 +11,13 @@ import android.widget.Toast;
 
 import com.example.proyectopadel.back.dao.UsuarioRepositorio;
 import com.example.proyectopadel.back.entidades.Usuario;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class nuevoUsuario extends AppCompatActivity {
     EditText etNombre,etApellido1,etApellido2,etCorreo;
     Button btnCrear;
+
+    FirebaseFirestore bd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +25,7 @@ public class nuevoUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_nuevo_usuario);
         btnCrear = findViewById(R.id.btnCrearUsu);
 
-
+        bd = FirebaseFirestore.getInstance();
 
         etNombre = findViewById(R.id.etNombreUsuario);
         etApellido1 = findViewById(R.id.etApellidoUsuario);
@@ -33,7 +36,7 @@ public class nuevoUsuario extends AppCompatActivity {
 
 
     public void insertarUsuario(View view){
-       // UsuarioRepositorio ur = new UsuarioRepositorio(bd.getWritableDatabase());
+       UsuarioRepositorio ur = new UsuarioRepositorio(bd);
         String nombreUsuario = etNombre.getText().toString();
         String apellido1 = etApellido1.getText().toString();
         String apellido2 = etApellido2.getText().toString();
@@ -42,7 +45,7 @@ public class nuevoUsuario extends AppCompatActivity {
         Usuario usu = new Usuario(nombreUsuario,apellido1,apellido2,correo);
 
         if (!nombreUsuario.isEmpty() && !apellido1.isEmpty() && !apellido2.isEmpty() && !correo.isEmpty()) {
-           // ur.insertar(usu);
+           ur.insertar(usu);
             Toast.makeText(this, "Datos insertados correctamente", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this,Usuarios.class);//Falta crear la clase usuarios
             startActivity(intent);

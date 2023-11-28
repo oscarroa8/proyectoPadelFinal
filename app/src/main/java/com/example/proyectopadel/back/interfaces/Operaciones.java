@@ -1,6 +1,7 @@
 package com.example.proyectopadel.back.interfaces;
 
 import com.example.proyectopadel.back.entidades.Pista;
+import com.example.proyectopadel.back.entidades.Usuario;
 import com.google.android.gms.tasks.Task;
 
 import java.util.List;
@@ -10,5 +11,5 @@ public interface Operaciones <T>{
     void actualizar(T entidad);
     void borrar(T entidad);
     T getById(Integer id);
-    Task<List<Pista>> findAll();
+
 }

@@ -8,7 +8,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.proyectopadel.back.dao.PistaRepositorio;
 import com.example.proyectopadel.back.dao.UsuarioRepositorio;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 
 public class Usuarios extends AppCompatActivity implements AdapterView.OnItemClickListener{
     private ListView listaUsuarios;
@@ -23,10 +27,13 @@ public class Usuarios extends AppCompatActivity implements AdapterView.OnItemCli
 
         listaUsuarios.setOnItemClickListener(this);
 
-        /*Database bd = new Database(this);
-        UsuarioRepositorio ur = new UsuarioRepositorio(bd.getWritableDatabase());*/
-       // adaptador = new ListAdapterUsuarios(Usuarios.this,R.layout.row_usuarios, ur.findAll());
-       // listaUsuarios.setAdapter(adaptador);
+        FirebaseFirestore bd = FirebaseFirestore.getInstance();
+        UsuarioRepositorio ur = new UsuarioRepositorio(bd);
+        adaptador = new ListAdapterUsuarios(Usuarios.this,R.layout.row_usuarios, new ArrayList<>());
+        listaUsuarios.setAdapter(adaptador);
+        ur.findAllUsuarios().addOnCompleteListener(task -> {
+            adaptador.setUsuarios(task.getResult());
+        });
     }
     public void pantallaCrearUsuario (View view){
         Intent intent = new Intent(this,nuevoUsuario.class);

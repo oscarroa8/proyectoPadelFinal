@@ -36,7 +36,7 @@ public class ListAdapterPistas extends ArrayAdapter<Pista> {
         Pista pista = getItem(position);
 
         TextView tvNombre = view.findViewById(R.id.tvNombrePistaRow);
-        tvNombre.setText(pista.getNombrePista());
+        tvNombre.setText(pista.getNombre());
         TextView tvMaterial = view.findViewById(R.id.tvMaterialRow);
         tvMaterial.setText(pista.getMaterial());
         TextView tvPrecio = view.findViewById(R.id.tvPrecioRow);

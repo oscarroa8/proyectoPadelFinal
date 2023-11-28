@@ -16,12 +16,10 @@ import com.example.proyectopadel.back.entidades.Usuario;
 import java.util.List;
 
 public class ListAdapterUsuarios extends ArrayAdapter<Usuario> {
-    private List<Usuario> listaUsuarios;
     private Context contexto;
     private int resourceLayout;
     public ListAdapterUsuarios(@NonNull Context context, int resource, List<Usuario> objects) {
         super(context, resource, objects);
-        this.listaUsuarios=objects;
         this.contexto=context;
         this.resourceLayout = resource;
     }
@@ -36,7 +34,7 @@ public class ListAdapterUsuarios extends ArrayAdapter<Usuario> {
             view = LayoutInflater.from(contexto).inflate(resourceLayout,null);
         }
 
-        Usuario usu = listaUsuarios.get(position);
+        Usuario usu = getItem(position);
 
         TextView tvNombre = view.findViewById(R.id.tvNombreUsu);
         tvNombre.setText(usu.getNombre());
@@ -49,5 +47,9 @@ public class ListAdapterUsuarios extends ArrayAdapter<Usuario> {
 
 
         return view;
+    }
+    public void setUsuarios(List<Usuario> result) {
+        clear();
+        addAll(result);
     }
 }
