@@ -5,11 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.proyectopadel.back.dao.PistaRepositorio;
 import com.example.proyectopadel.back.entidades.Pista;
 
 import java.util.List;
@@ -17,6 +19,7 @@ import java.util.List;
 public class ListAdapterPistas extends ArrayAdapter<Pista> {
     private Context contexto;
     private int resourceLayout;
+    private PistaRepositorio pr;
     public ListAdapterPistas(@NonNull Context context, int resource, List<Pista> objects) {
         super(context, resource, objects);
         this.contexto=context;
@@ -41,13 +44,23 @@ public class ListAdapterPistas extends ArrayAdapter<Pista> {
         tvMaterial.setText(pista.getMaterial());
         TextView tvPrecio = view.findViewById(R.id.tvPrecioRow);
         tvPrecio.setText(Integer.toString(pista.getPrecio()));
+        ImageView btn_borrar = view.findViewById(R.id.ivBorrar);
+
+        btn_borrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pr.borrar(pista);
+            }
+        });
 
 
         return view;
     }
 
+
     public void setPistas(List<Pista> result) {
         clear();
         addAll(result);
     }
+
 }

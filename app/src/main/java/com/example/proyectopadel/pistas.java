@@ -34,6 +34,7 @@ public class pistas extends AppCompatActivity implements AdapterView.OnItemClick
         pr.findAll().addOnCompleteListener(task -> {
            adaptador.setPistas(task.getResult());
         });
+
     }
 
     @Override
