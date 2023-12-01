@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 
 import com.example.proyectopadel.back.dao.PistaRepositorio;
 import com.example.proyectopadel.back.entidades.Pista;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class ListAdapterPistas extends ArrayAdapter<Pista> {
         super(context, resource, objects);
         this.contexto=context;
         this.resourceLayout = resource;
+        this.pr = new PistaRepositorio(FirebaseFirestore.getInstance());
     }
 
     //Buscar las vistas de cada elemento
@@ -45,13 +47,8 @@ public class ListAdapterPistas extends ArrayAdapter<Pista> {
         TextView tvPrecio = view.findViewById(R.id.tvPrecioRow);
         tvPrecio.setText(Integer.toString(pista.getPrecio()));
         ImageView btn_borrar = view.findViewById(R.id.ivBorrar);
+        btn_borrar.setOnClickListener((v) -> borrar(pista));
 
-        btn_borrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pr.borrar(pista);
-            }
-        });
 
 
         return view;
@@ -61,6 +58,14 @@ public class ListAdapterPistas extends ArrayAdapter<Pista> {
     public void setPistas(List<Pista> result) {
         clear();
         addAll(result);
+    }
+
+    private void borrar(Pista pista) {
+        pr.borrar(pista)
+                .addOnCompleteListener(task -> {
+                    remove(pista);
+                });
+
     }
 
 }

@@ -2,7 +2,6 @@ package com.example.proyectopadel.back.dao;
 
 import android.util.Log;
 
-import com.example.proyectopadel.back.entidades.Pista;
 import com.example.proyectopadel.back.entidades.Usuario;
 import com.example.proyectopadel.back.interfaces.IUsuario;
 import com.google.android.gms.tasks.Task;
@@ -43,7 +42,7 @@ public class UsuarioRepositorio implements IUsuario<Usuario> {
     }
 
     @Override
-    public void borrar(Usuario usuario) {
+    public Task<Void> borrar(Usuario usuario) {
         throw new UnsupportedOperationException();
     }
 

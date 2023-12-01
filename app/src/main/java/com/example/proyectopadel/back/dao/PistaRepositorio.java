@@ -2,12 +2,8 @@ package com.example.proyectopadel.back.dao;
 
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-
 import com.example.proyectopadel.back.entidades.Pista;
 import com.example.proyectopadel.back.interfaces.IPista;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -47,23 +43,19 @@ public class PistaRepositorio implements IPista<Pista> {
     }
 
     @Override
-    public void borrar(Pista pista) {
+    public Task<Void> borrar(Pista pista) {
 
-        bd.collection("pistas").document(pista.getIdPista())
-               .delete()
-               .addOnSuccessListener(new OnSuccessListener<Void>() {
-                   @Override
-                   public void onSuccess(Void unused) {
-                       Log.d(TAG, "pista borrada");
-                   }
-               })
-               .addOnFailureListener(new OnFailureListener() {
-                   @Override
-                   public void onFailure(@NonNull Exception e) {
-                       Log.w(TAG,"error borrando",e);
-                   }
-               });
-
+        return bd.collection("pistas").document(pista.getIdPista())
+                .delete()
+                .continueWith(task -> {
+                    if (task.isSuccessful()) {
+                        return null;
+                    }
+                    else {
+                        Log.w(TAG, "Error en consulta de firebase", task.getException());
+                        return null;
+                    }
+                });
 
     }
 
