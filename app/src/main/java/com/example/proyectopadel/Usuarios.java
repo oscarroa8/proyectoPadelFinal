@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.proyectopadel.back.dao.PistaRepositorio;
+import com.example.proyectopadel.adaptadores.ListAdapterUsuarios;
 import com.example.proyectopadel.back.dao.UsuarioRepositorio;
 import com.google.firebase.firestore.FirebaseFirestore;
 

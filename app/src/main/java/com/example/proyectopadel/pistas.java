@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.proyectopadel.adaptadores.ListAdapterPistas;
 import com.example.proyectopadel.back.dao.PistaRepositorio;
 import com.google.firebase.firestore.FirebaseFirestore;
 

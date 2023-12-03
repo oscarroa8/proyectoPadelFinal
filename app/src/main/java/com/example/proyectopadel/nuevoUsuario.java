@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.proyectopadel.back.dao.UsuarioRepositorio;
 import com.example.proyectopadel.back.entidades.Usuario;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class nuevoUsuario extends AppCompatActivity {
@@ -19,10 +20,14 @@ public class nuevoUsuario extends AppCompatActivity {
 
     FirebaseFirestore bd;
 
+    private FirebaseAuth mAuth;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo_usuario);
+        mAuth = FirebaseAuth.getInstance();
         btnCrear = findViewById(R.id.btnCrearUsu);
 
         bd = FirebaseFirestore.getInstance();

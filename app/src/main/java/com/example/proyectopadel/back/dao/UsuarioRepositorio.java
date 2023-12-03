@@ -82,7 +82,7 @@ public class UsuarioRepositorio implements IUsuario<Usuario> {
                             if (task.isSuccessful()) {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Usuario usu = new Usuario(
-                                            document.getId(),
+                                            //document.getId(),
                                             document.get("nombre", String.class),
                                             document.get("apellido1", String.class),
                                             document.get("apellido2", String.class),

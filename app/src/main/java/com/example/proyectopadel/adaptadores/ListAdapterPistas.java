@@ -1,4 +1,4 @@
-package com.example.proyectopadel;
+package com.example.proyectopadel.adaptadores;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.proyectopadel.R;
 import com.example.proyectopadel.back.dao.PistaRepositorio;
 import com.example.proyectopadel.back.entidades.Pista;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -48,8 +49,6 @@ public class ListAdapterPistas extends ArrayAdapter<Pista> {
         tvPrecio.setText(Integer.toString(pista.getPrecio()));
         ImageView btn_borrar = view.findViewById(R.id.ivBorrar);
         btn_borrar.setOnClickListener((v) -> borrar(pista));
-
-
 
         return view;
     }
