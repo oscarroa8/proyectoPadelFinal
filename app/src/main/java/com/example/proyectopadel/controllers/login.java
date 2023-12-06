@@ -33,18 +33,13 @@ public class login extends AppCompatActivity{
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        //updateUI(currentUser);
-    }
-
     private void elementosIntefaz() {
         this.entrar = findViewById(R.id.btnEntrar);
         this.etUsuario= findViewById(R.id.etCorreo);
         this.etContrasena = findViewById(R.id.etContrasena);
     }
+
+
 
     public void logUser(View v){
         this.emailUsuario= etUsuario.getText().toString();

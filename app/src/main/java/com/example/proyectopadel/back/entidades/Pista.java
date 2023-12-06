@@ -1,6 +1,7 @@
 package com.example.proyectopadel.back.entidades;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 public class Pista implements Serializable {
     private String idPista;
@@ -19,6 +20,7 @@ public class Pista implements Serializable {
     }
 
     public Pista( String nombre, String material, Integer precio) {
+        this.idPista = UUID.randomUUID().toString();//Crea una secuencia de caracteres aleatoria que nunca se repite
         this.nombre = nombre;
         this.material = material;
         this.precio = precio;
