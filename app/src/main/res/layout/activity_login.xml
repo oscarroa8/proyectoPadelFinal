@@ -10,13 +10,13 @@
         android:id="@+id/etContrasena"
         android:layout_width="226dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="452dp"
+        android:layout_marginBottom="208dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -25,21 +25,21 @@
         android:layout_width="194dp"
         android:layout_height="65dp"
         android:background="@drawable/ovalo"
+        android:onClick="logUser"
         android:text="Entrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.683" />
+        app:layout_constraintVertical_bias="0.804" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="166dp"
         android:layout_height="166dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_foreground" />
@@ -48,8 +48,8 @@
         android:id="@+id/etCorreo"
         android:layout_width="229dp"
         android:layout_height="53dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginStart="388dp"
+        android:layout_marginTop="256dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"

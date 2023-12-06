@@ -13,6 +13,9 @@ import android.widget.ListView;
 
 import com.example.proyectopadel.adaptadores.ListAdapterPistas;
 import com.example.proyectopadel.back.dao.PistaRepositorio;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -27,6 +30,9 @@ public class pistas extends AppCompatActivity implements AdapterView.OnItemClick
         listaPistas = findViewById(R.id.listviewPistas);
 
         listaPistas.setOnItemClickListener(this);
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        Snackbar.make(findViewById(android.R.id.content),"Bienvenido "+currentUser.getEmail(),Snackbar.LENGTH_SHORT).show();
 
         FirebaseFirestore bd = FirebaseFirestore.getInstance();
         PistaRepositorio pr = new PistaRepositorio(bd);
