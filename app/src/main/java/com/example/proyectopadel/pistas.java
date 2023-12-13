@@ -9,10 +9,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.example.proyectopadel.adaptadores.ListAdapterPistas;
 import com.example.proyectopadel.back.dao.PistaRepositorio;
+import com.example.proyectopadel.back.entidades.Pista;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,6 +25,7 @@ import java.util.ArrayList;
 public class pistas extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private ListView listaPistas;
     ListAdapterPistas adaptador;
+    ListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,8 @@ public class pistas extends AppCompatActivity implements AdapterView.OnItemClick
         pr.findAll().addOnCompleteListener(task -> {
            adaptador.setPistas(task.getResult());
         });
+
+        adapter= listaPistas.getAdapter();
 
     }
 
@@ -68,13 +73,21 @@ public class pistas extends AppCompatActivity implements AdapterView.OnItemClick
         startActivity(intent);
     }
 
-    public void pantallaDatosPista (View view){
-        Intent intent = new Intent(this,datosPista.class);
-        startActivity(intent);
-    }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        pantallaDatosPista(view);
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {//Metodo que sirve
+        // para que cuando se pincha en un row del listview de pistas, se abra las reservas de la pista
+        // y se le pase los datos de la pista
+
+        if(adapter == null)
+            throw new NullPointerException("El adaptador no contiene valores.");
+
+        Pista pistaToGet = (Pista) adapter.getItem(i);
+
+        Intent intent = new Intent(this,datosPista.class);
+        intent.putExtra("nombrePista", pistaToGet.getNombre());
+        intent.putExtra("idPista", pistaToGet.getIdPista());
+        intent.putExtra("precioPista", pistaToGet.getPrecio());
+        startActivity(intent);
     }
 }

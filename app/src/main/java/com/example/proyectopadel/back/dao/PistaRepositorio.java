@@ -6,6 +6,7 @@ import com.example.proyectopadel.back.entidades.Pista;
 import com.example.proyectopadel.back.interfaces.IPista;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -88,6 +89,33 @@ public class PistaRepositorio implements IPista<Pista> {
                         return pistas;
                     }
                 );
+    }
+
+    @Override
+    public Task<Pista> getPistaById(String idPista) {
+        return bd.collection("pistas")
+                .document(idPista)
+                .get()
+                .continueWith(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            return new Pista(
+                                    document.getId(),
+                                    document.getString("nombre"),
+                                    document.getString("material"),
+                                    document.getDouble("precio").intValue()
+                            );
+                        } else {
+                            Log.d(TAG, "No existe ningún documento con ese ID");
+                            return null;
+                        }
+                    } else {
+                        Log.w(TAG, "Error al obtener el documento", task.getException());
+                        return null;
+                    }
+                });
+
     }
 
 }

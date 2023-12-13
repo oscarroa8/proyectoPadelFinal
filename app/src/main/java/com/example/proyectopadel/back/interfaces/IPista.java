@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface IPista<T> extends Operaciones<T>{
     Task<List<Pista>> findAll();
-
+    Task<Pista> getPistaById(String idPista);
 }

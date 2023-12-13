@@ -11,126 +11,121 @@
         android:layout_width="238dp"
         android:layout_height="64dp"
         android:gravity="center"
-        android:text="Pista"
+        android:text=""
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.126" />
+        app:layout_constraintVertical_bias="0.095" />
 
-    <TableLayout
-        android:layout_width="538dp"
-        android:layout_height="251dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="208dp"
-        android:layout_marginEnd="32dp"
+
+    <HorizontalScrollView
+        android:layout_width="450dp"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.745">
 
-        <TableRow
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <Button
-                android:layout_weight="1"
-                android:padding="5dp"
-                android:text="9:00" />
+            <GridLayout
+                android:id="@+id/gridLayoutReservas"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:alignmentMode="alignMargins"
+                android:columnCount="5"
+                android:columnOrderPreserved="false"
+                android:useDefaultMargins="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.056"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.745">
 
-            <Button
-                android:layout_weight="1"
-                android:text="10:00" />
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:text="Nombre cliente" />
 
-            <Button
-                android:layout_weight="1"
-                android:text="11:00" />
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:text="Telefono cliente" />
 
-        </TableRow>
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:layout_row="0"
+                    android:layout_column="2"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:text="Nombre pista" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:layout_row="0"
+                    android:layout_column="3"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:text="Hora inicio" />
 
-            <Button
-                android:layout_weight="1"
-                android:text="12:00" />
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:layout_row="0"
+                    android:layout_column="4"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp"
+                    android:text="Duracion Reserva" />
 
-            <Button
-                android:layout_weight="1"
-                android:text="13:00" />
+            </GridLayout>
+        </ScrollView>
 
-            <Button
-                android:layout_weight="1"
-                android:text="14:00" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:layout_weight="1"
-                android:text="15:00" />
-
-            <Button
-                android:layout_weight="1"
-                android:text="16:00" />
-
-            <Button
-                android:layout_weight="1"
-                android:text="17:00" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:layout_weight="1"
-                android:text="18:00" />
-
-            <Button
-                android:layout_weight="1"
-                android:text="19:00" />
-
-            <Button
-                android:layout_weight="1"
-                android:text="20:00" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:layout_weight="1"
-                android:text="21:00" />
-
-            <Button
-                android:layout_weight="1"
-                android:text="22:00" />
-
-            <Button
-                android:layout_weight="1"
-                android:text="23:00" />
-
-        </TableRow>
-
-    </TableLayout>
+    </HorizontalScrollView>
 
     <Button
         android:id="@+id/btnCalendario"
         android:layout_width="207dp"
         android:layout_height="81dp"
-        android:layout_marginStart="540dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="720dp"
+        android:layout_marginTop="136dp"
         android:onClick="calendario"
         android:text="selecciona fecha"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnReserva"
+        android:layout_width="207dp"
+        android:layout_height="81dp"
+        android:onClick="irAReservar"
+        android:text="reserva"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615" />
 </androidx.constraintlayout.widget.ConstraintLayout>
